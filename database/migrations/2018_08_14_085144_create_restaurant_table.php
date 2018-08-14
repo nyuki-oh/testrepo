@@ -44,7 +44,7 @@ class CreateRestaurantTable extends Migration
             if ($ri['distance'] == '') {
                 $ri['distance'] = NULL;
             }
-            DB::table('hoge')->insert($ri);
+            DB::table('restaurant')->insert($ri);
         }
     }
 
