@@ -11,7 +11,7 @@ $botman->hears('ping', function ($bot) {
     $bot->reply('pong');
 });
 */
-$botman->hears('{mes}', fuction ($bot, $mes) {
+$botman->hears('{mes}', function ($bot, $mes) {
     $bot->reply($mes);
 });
 
