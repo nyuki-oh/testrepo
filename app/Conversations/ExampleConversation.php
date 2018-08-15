@@ -29,11 +29,14 @@ class ExampleConversation extends Conversation
 
         return $this->ask($question, function (Answer $answer) {
             if ($answer->isInteractiveMessageReply()) {
-                if ($answer->getValue() === 'joke') {
-                    $joke = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
-                    $this->say($joke->value->joke);
-                } else {
-                    $this->say(Inspiring::quote());
+                if ($answer->getValue() === '1') {
+                    $this->say($lunch[0]->url);
+                } else if($answer->getValue() === '2'){
+                    $this->say($lunch[1]->url);
+                } else if ($answer->getValue() === '3'){
+                    $this->say($lunch[2]->url);
+                } else{
+                    $this->say(":fast_parrot:");
                 }
             }
         });
