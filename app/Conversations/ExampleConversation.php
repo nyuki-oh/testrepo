@@ -24,7 +24,6 @@ class ExampleConversation extends Conversation
                 Button::create('1')->value('joke'),
                 Button::create('2')->value('quote'),
                 Button::create('3')->value('quote'),
-                Button::create('別の')->value('again'),
             ]);
 
         return $this->ask($question, function (Answer $answer) {
