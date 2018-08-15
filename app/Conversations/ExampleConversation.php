@@ -15,12 +15,13 @@ class ExampleConversation extends Conversation
      */
     public function askReason()
     {
+        $lunch = DB::select('select * from restaurant order by RANDOM() limit 3');
         $question = Question::create("Huh - you woke me up. What do you need?")
             ->fallback('Unable to ask question')
             ->callbackId('ask_reason')
             ->addButtons([
-                Button::create('Tell a joke')->value('joke'),
-                Button::create('Give me a fancy quote')->value('quote'),
+                Button::create('J')->value('joke'),
+                Button::create('Q')->value('quote'),
             ]);
 
         return $this->ask($question, function (Answer $answer) {
