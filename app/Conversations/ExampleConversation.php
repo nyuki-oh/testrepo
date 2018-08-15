@@ -21,19 +21,19 @@ class ExampleConversation extends Conversation
             ->fallback('Unable to ask question')
             ->callbackId('ask_reason')
             ->addButtons([
-                Button::create('1')->value('joke'),
-                Button::create('2')->value('quote'),
-                Button::create('3')->value('quote'),
+                Button::create('1')->value(1),
+                Button::create('2')->value(2),
+                Button::create('3')->value(3),
                 Button::create('もう一度')->value('again'),
             ]);
 
         return $this->ask($question, function (Answer $answer) {
             if ($answer->isInteractiveMessageReply()) {
-                if ($answer->getValue() === '1') {
+                if ($answer->getValue() === 1) {
                     $this->say($lunch[0]->url);
-                } else if($answer->getValue() === '2'){
+                } else if($answer->getValue() === 2){
                     $this->say($lunch[1]->url);
-                } else if ($answer->getValue() === '3'){
+                } else if ($answer->getValue() === 3){
                     $this->say($lunch[2]->url);
                 } else{
                     $this->say(":fast_parrot:");
