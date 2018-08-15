@@ -17,7 +17,7 @@ class ExampleConversation extends Conversation
     public function askReason()
     {
         $lunch = DB::select('select * from restaurant order by RANDOM() limit 3');
-        $question = Question::create("Hello")
+        $question = Question::create("$lunch[0]->name")
             ->fallback('Unable to ask question')
             ->callbackId('ask_reason')
             ->addButtons([
