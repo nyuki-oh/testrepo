@@ -35,16 +35,18 @@ class CreateRestaurantTable extends Migration
         foreach ($records as $r) {
             print_r($r);
             $ri = $r;
-            if ($ri['lunch'] == '') {
-                $ri['lunch'] = NULL;
+            if ($ri['invalid'] == '') {
+                if ($ri['lunch'] == '') {
+                    $ri['lunch'] = NULL;
+                }
+                if ($ri['walking'] == '') {
+                    $ri['walking'] = NULL;
+                }
+                if ($ri['distance'] == '') {
+                    $ri['distance'] = NULL;
+                }
+                DB::table('restaurant')->insert($ri);
             }
-            if ($ri['walking'] == '') {
-                $ri['walking'] = NULL;
-            }
-            if ($ri['distance'] == '') {
-                $ri['distance'] = NULL;
-            }
-            DB::table('restaurant')->insert($ri);
         }
     }
 
