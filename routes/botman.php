@@ -15,7 +15,7 @@ $botman->hears('{mes}', function ($bot, $mes) {
     $bot->reply($mes);
 });
 */
-$botman->hears('yo {category}', [BotManController::class.'@startConversation', ['$cate' => $category]]);
+$botman->hears('yo', BotManController::class.'@startConversation');
 
 $botman->hears('.*(ランチ|らんち|lunch).*', function ($bot) {
     $lunch = DB::select('select * from restaurant order by RANDOM() limit 3');
